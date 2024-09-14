@@ -9,12 +9,14 @@
     </div>
   </div>
   <div class="d-flex justify-content-between mb-0">
-  <div class="text-warning">
-    <i [class]="product.rating > 0 ? 'fa fa-star' : 'fa fa-star-o'"></i>
-    <i [class]="product.rating > 1 ? 'fa fa-star' : 'fa fa-star-o'"></i>
-    <i [class]="product.rating > 2 ? 'fa fa-star' : 'fa fa-star-o'"></i>
-    <i [class]="product.rating > 3 ? 'fa fa-star' : 'fa fa-star-o'"></i>
-    <i [class]="product.rating > 4 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+    <div class="text-warning">
+      <i [class]="product.rating > 0 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+      <i [class]="product.rating > 1 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+      <i [class]="product.rating > 2 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+      <i [class]="product.rating > 3 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+      <i [class]="product.rating > 4 ? 'fa fa-star' : 'fa fa-star-o'"></i>
+    </div>
+    <button *ngIf="product.availableQty === 0" type="button" class="btn btn-secondary">Out of Stock</button>
+    <button *ngIf="product.availableQty !== 0" type="button" class="btn btn-success">Add to Cart</button>
   </div>
-</div>
 </div>
