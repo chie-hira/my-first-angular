@@ -25,7 +25,9 @@
         <i class="fa fa-shopping-cart"></i>
       </a>
       <!-- Cart Dropdown Menu -->
-      <div class="dropdown-menu dropdown-menu-end show" style="position: absolute; right: 13px; top: 60px;" aria-labelledby="navbarDropdownMenuAvatar">
+      <!-- showを削除して非表示にする -->
+      <div class="dropdown-menu dropdown-menu-end" style="position: absolute; right: 13px; top: 60px;" aria-labelledby="navbarDropdownMenuAvatar">
+      <!-- <div class="dropdown-menu dropdown-menu-end show" style="position: absolute; right: 13px; top: 60px;" aria-labelledby="navbarDropdownMenuAvatar"> -->
         <div class="row">
           <!-- Cart Header -->
           <div class="col-8">
@@ -68,3 +70,6 @@
     </div>
   </div>
 </nav>
+<!-- Router outlet for displaying routed components -->
+<!-- ここにhomeコンポーネントを表示する -->
+<router-outlet></router-outlet>
