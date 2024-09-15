@@ -65,4 +65,26 @@ export class HomeComponent {
       this.filteredProducts = this.products.filter(product => product.category === category);
     }
   }
+
+  public sortProducts(event: Event): void {
+    const target = event.target as HTMLSelectElement | null;
+    if (target === null) {
+      return;
+    }
+    const selectedValue = target.value;
+    switch (selectedValue) {
+      case 'priceLow':
+        this.filteredProducts.sort((a, b) => a.price - b.price);
+        break;
+      case 'priceHigh':
+        this.filteredProducts.sort((a, b) => b.price - a.price);
+        break;
+      case 'reviewHigh':
+        this.filteredProducts.sort((a, b) => b.rating - a.rating);
+        break;
+      default:
+        this.filteredProducts.sort((a, b) => a.productId - b.productId);
+        break;
+    }
+  }
 }
