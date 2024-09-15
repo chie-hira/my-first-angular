@@ -4,7 +4,10 @@
     <div class="container py-5">
       <!-- Category selection buttons -->
       <div class="rounded-circle d-flex align-items-center justify-content-center mb-4">
-        <button *ngFor="let category of categories; let i = index; trackBy: trackByIndex" class="btn btn-outline-primary mx-2">
+        <button *ngFor="let category of categories; let i = index; trackBy: trackByIndex"
+        [class]="selectedCategory === category ? 'btn btn-primary mx-2' : 'btn btn-outline-primary mx-2'"
+        (click)="filteredCategory(category)"
+        >
           {{ category }}
         </button>
       </div>
@@ -13,7 +16,7 @@
         <!-- Display product cards if products are found -->
         <ng-container>
           <!-- productsからproductを取り出してapp-product-cardに渡す -->
-          <div *ngFor="let product of products; let i = index; trackBy: trackByIndex" class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
+          <div *ngFor="let product of filteredProducts; let i = index; trackBy: trackByIndex" class="col-md-12 col-lg-3 pt-2 mb-4 mb-lg-0">
             <!-- product情報を子コンポーネントに送信する -->
             <app-product-card [product]="product"></app-product-card>
           </div>
