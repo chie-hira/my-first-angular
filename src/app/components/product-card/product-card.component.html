@@ -4,8 +4,7 @@
   <div *ngIf="product.isSale" class="bg-danger rounded-circle d-flex align-items-center justify-content-center shadow-1-strong" style="width: 35px; height: 35px; position: absolute; left: 0;">
     <p class="text-white mb-0 small">Sale</p>
   </div>
-  <div *ngIf="product.isNew"
-  class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong" style="width: 35px; height: 35px; position: absolute; left: 0;">
+  <div *ngIf="product.isNew" class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong" style="width: 35px; height: 35px; position: absolute; left: 0;">
     <p class="text-white mb-0 small">New</p>
   </div>
   <img [src]="product.imageUrl" class="card-img-top" [alt]="product.productName" />
@@ -24,6 +23,7 @@
       <i [class]="product.rating > 4 ? 'fa fa-star' : 'fa fa-star-o'"></i>
     </div>
     <button *ngIf="product.availableQty === 0" type="button" class="btn btn-secondary">Out of Stock</button>
-    <button *ngIf="product.availableQty !== 0" type="button" class="btn btn-success">Add to Cart</button>
+    <!-- (click)で関数をバインディングする -->
+    <button *ngIf="product.availableQty !== 0" type="button" class="btn btn-success" (click)="addToCart(product)">Add to Cart</button>
   </div>
 </div>
