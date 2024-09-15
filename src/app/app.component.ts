@@ -48,4 +48,8 @@ export class AppComponent {
   public removeProduct(index: number): void {
     this.cartItems.splice(index, 1);
   }
+
+  public getTotalQuantity(): number {
+    return this.cartItems.length;
+  }
 }
