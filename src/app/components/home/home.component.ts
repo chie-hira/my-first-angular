@@ -31,9 +31,25 @@ export class HomeComponent {
     { productId: 15, rating: 5, productName: 'Compact TV', category: 'TV', price: 300, isSale: true, releaseDate: '2023-01-10', availableQty: 5, imageUrl: 'assets/images/15.jpg' }
   ];
 
+  constructor() {
+    this.products = this.markNewProduct(this.products);
+  }
+
   // 一意の識別子を返すメソッド
   //ngForディレクティブでリストを描画する際に使用
   public trackByIndex(index: number, item: any): number {
     return index;
+  }
+
+  private markNewProduct(products: Product[]): Product[] {
+    const referenceDate = new Date('2024-04-01');
+    const threeMonthsAgo = new Date(referenceDate.setMonth(referenceDate.getMonth() - 3));
+
+    return products.map(product => {
+      return {
+        ...product,
+        isNew: new Date(product.releaseDate) >= threeMonthsAgo
+      };
+    });
   }
 }
